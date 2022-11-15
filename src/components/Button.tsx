@@ -2,6 +2,8 @@ import React from "react";
 
 interface PropsInterface {
     children: string
+    color: string
+    className?: string
 }
 
 const Button = (props: PropsInterface) => {
@@ -10,8 +12,8 @@ const Button = (props: PropsInterface) => {
         flex justify-end mb-8
     `} >
       <button className={`
-        bg-blue-900 hover:bg-blue-800 text-white
-        py-2 px-4 rounded-md
+        bg-${props.color}-900 hover:bg-${props.color}-800 text-white
+        py-2 px-4 rounded-md ${props.className}
       `} >
         {props.children}
       </button>
