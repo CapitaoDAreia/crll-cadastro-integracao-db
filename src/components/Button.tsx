@@ -4,6 +4,7 @@ interface PropsInterface {
     children: string
     color: string
     className?: string
+    onClick?: ()=>void
 }
 
 const Button = (props: PropsInterface) => {
@@ -11,7 +12,7 @@ const Button = (props: PropsInterface) => {
     <div className={`
         flex justify-end mb-8
     `} >
-      <button className={`
+      <button onClick={props.onClick} className={`
         bg-${props.color}-900 hover:bg-${props.color}-800 text-white
         py-2 px-4 rounded-md ${props.className}
       `} >
