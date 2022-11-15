@@ -1,5 +1,5 @@
 import React from "react";
-import { EditIcon, TrashIcon } from "../assets/icones";
+import { TrashIcon, EditIcon } from "../assets/icons";
 import Client from "../core/Cliente";
 
 interface TableProps {

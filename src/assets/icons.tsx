@@ -1,5 +1,5 @@
 export const EditIcon = (
-  <svg
+  <svg style={{width: '20px'}}
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
@@ -16,7 +16,7 @@ export const EditIcon = (
 );
 
 export const TrashIcon = (
-  <svg
+  <svg style={{width: '20px'}}
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
