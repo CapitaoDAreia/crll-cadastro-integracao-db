@@ -1,6 +1,7 @@
 import Table from "../components/Table";
 import Cliente from "../core/Cliente";
 import Layout from "../components/Layout";
+import Button from "../components/Button";
 
 export default function Home() {
   
@@ -28,6 +29,9 @@ export default function Home() {
     `}
     >
       <Layout title="CRUD | Cadastro">
+        <Button>
+          Novo Cliente
+        </Button>
         <Table clients={clients} selectedClient={selectedClient} deletedClient={deletedClient} ></Table>
       </Layout>
     </div>
