@@ -7,6 +7,9 @@ import Button from "../components/Button";
 import Form from "../components/Form";
 
 export default function Home() {
+  const [display, setDisplay] = React.useState<"table" | "form">("table");
+  const [client, setClient] = React.useState<Cliente>(Cliente.empty());
+
   const clients = [
     new Cliente("Igor", 24, "01"),
     new Cliente("Bia", 25, "02"),
@@ -15,6 +18,8 @@ export default function Home() {
   ];
 
   function selectedClient(client: Cliente) {
+    setClient(client);
+    setDisplay("form");
     console.log(`${client.name} selecionado`);
   }
 
@@ -23,10 +28,14 @@ export default function Home() {
   }
 
   function saveClient(client: Cliente) {
-    console.log(client)
+    console.log(client);
+    setDisplay("table");
   }
 
-  const [display, setDisplay] = React.useState<"table" | "form">("table");
+  function newClient(){
+    setClient(Cliente.empty)
+    setDisplay("form")
+  }
 
   return (
     <div
@@ -39,7 +48,7 @@ export default function Home() {
       <Layout title="CRUD | Cadastro">
         {display === "table" ? (
           <>
-            <Button onClick={() => setDisplay("form")} color="blue">
+            <Button onClick={() => newClient} color="blue">
               Novo Cliente
             </Button>
             <Table
@@ -49,7 +58,11 @@ export default function Home() {
             ></Table>
           </>
         ) : (
-          <Form changedClient={saveClient} client={clients[1]} cancel={()=>setDisplay('table')} />
+          <Form
+            changedClient={saveClient}
+            client={client}
+            cancel={() => setDisplay("table")}
+          />
         )}
       </Layout>
     </div>
