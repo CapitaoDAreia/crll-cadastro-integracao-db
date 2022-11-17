@@ -48,7 +48,7 @@ export default function Home() {
       <Layout title="CRUD | Cadastro">
         {display === "table" ? (
           <>
-            <Button onClick={() => newClient} color="blue">
+            <Button onClick={() => newClient()} color="blue">
               Novo Cliente
             </Button>
             <Table
