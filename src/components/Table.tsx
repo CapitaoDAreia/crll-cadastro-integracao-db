@@ -9,8 +9,7 @@ interface TableProps {
 }
 
 export default function Table(props: TableProps) {
-
-  const showActions = props.deletedClient || props.selectedClient
+  const showActions = props.deletedClient || props.selectedClient;
 
   function handleRenderHeader() {
     return (
@@ -44,7 +43,7 @@ export default function Table(props: TableProps) {
       <td className={`flex justify-center`}>
         {props.selectedClient ? (
           <button
-          onClick={()=> props.selectedClient?.(client)}
+            onClick={() => props.selectedClient?.(client)}
             className={`flex justify-center items-center text-green-600 rounded-full p-2 m-1 hover:bg-green-100`}
           >
             {EditIcon}
@@ -55,7 +54,7 @@ export default function Table(props: TableProps) {
 
         {props.deletedClient ? (
           <button
-          onClick={()=> props.deletedClient?.(client)}
+            onClick={() => props.deletedClient?.(client)}
             className={`flex justify-center items-center text-red-500 rounded-full p-2 m-1 hover:bg-red-100`}
           >
             {TrashIcon}

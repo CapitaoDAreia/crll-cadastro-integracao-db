@@ -10,8 +10,8 @@ export default class Cliente {
     this.#id = id;
   }
 
-  static empty(){
-    return new Cliente('', 0, undefined)
+  static empty() {
+    return new Cliente("", 0, undefined);
   }
 
   get id() {

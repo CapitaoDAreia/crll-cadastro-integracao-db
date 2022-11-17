@@ -9,20 +9,19 @@ import ClientRepository from "../core/RepoClient";
 import ColectionClient from "../backend/db/ColectionClient";
 
 export default function Home() {
-
-  const repo: ClientRepository = new ColectionClient()
+  const repo: ClientRepository = new ColectionClient();
 
   const [display, setDisplay] = React.useState<"table" | "form">("table");
   const [client, setClient] = React.useState<Cliente>(Cliente.empty());
   const [clients, setClients] = React.useState<Cliente[]>([]);
 
-  useEffect(getAll, [])
-  
-  function getAll(){
-    repo.getAll().then((clients)=>{
-      setClients(clients)
-      setDisplay("table")
-    })
+  useEffect(getAll, []);
+
+  function getAll() {
+    repo.getAll().then((clients) => {
+      setClients(clients);
+      setDisplay("table");
+    });
   }
 
   function selectedClient(client: Cliente) {
@@ -32,18 +31,18 @@ export default function Home() {
   }
 
   async function deletedClient(client: Cliente) {
-    await repo.delete(client)
-    getAll()
+    await repo.delete(client);
+    getAll();
   }
 
   async function saveClient(client: Cliente) {
-    await repo.save(client)
-    getAll()
+    await repo.save(client);
+    getAll();
   }
 
-  function newClient(){
-    setClient(Cliente.empty)
-    setDisplay("form")
+  function newClient() {
+    setClient(Cliente.empty);
+    setDisplay("form");
   }
 
   return (
